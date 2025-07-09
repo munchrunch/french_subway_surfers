@@ -1,11 +1,22 @@
 package french_subway_surfers;
 
 import javax.swing.*;
-import java.awt.*;
 
-public class Main extends JPanel {
+public class Main {
     public static void main (String [] args){
-        System.out.println("test");
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // window closes properly
+        window.setResizable(false); // window is no longer resizable
+        window.setTitle("French Vocab"); // sets title of window
+
+        gamePanel gamePan = new gamePanel();
+        window.add(gamePan);
+
+        window.pack();
+
+        window.setLocationRelativeTo(null); // window displayed in center of screen
+        window.setVisible(true);
+        
     }
 
     /* program notes/preliminary logic:
