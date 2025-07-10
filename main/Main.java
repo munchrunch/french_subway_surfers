@@ -1,4 +1,4 @@
-package french_subway_surfers;
+package main;
 
 import javax.swing.*;
 

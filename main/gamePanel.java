@@ -1,14 +1,16 @@
-package french_subway_surfers;
+package main;
 
 import javax.swing.*;
 import java.awt.*;
+
+import entity.player;
 
 public class gamePanel extends JPanel implements Runnable{
     // screen settings
     final int originalTileSize = 16; // 16 x 16 tile (player character)
     final int scale = 3; // scales tiles up by 3
 
-    final int tileSize = originalTileSize * scale; // 48 x 48 tile
+    public final int tileSize = originalTileSize * scale; // 48 x 48 tile
     final int maxScreenCol = 18;
     final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol; // 864 pixels
@@ -18,6 +20,7 @@ public class gamePanel extends JPanel implements Runnable{
 
     keyHandler keyH = new keyHandler();
     Thread gameThread; // makes it so that fps works (animations)
+    player Player = new player(this, keyH);
 
     // set player's default position
     int playerX = 100; // 100 pixels to the right
@@ -70,23 +73,13 @@ public class gamePanel extends JPanel implements Runnable{
     }
 
     public void update(){
-        if (keyH.upPressed == true){
-            playerY -= playerSpeed; 
-        } else if (keyH.downPressed == true){
-            playerY += playerSpeed;
-        } else if (keyH.leftPressed == true){
-            playerX -= playerSpeed;
-        } else if (keyH.rightPressed == true){
-            playerX += playerSpeed;
-        }
-
+        Player.update();
     }
 
     public void paintComponent(Graphics g) { // built-in java method for fps
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g; // changing graphics g object to graphics2d class
-        g2.setColor(Color.white);
-        g2.fillRect(playerX, playerY, tileSize, tileSize); // draws rectangle and fills w colour
+        Player.draw(g2);
         g2.dispose();
     }
 }
