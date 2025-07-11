@@ -47,7 +47,9 @@ public class player extends Entity {
         }
     }
 
+    // called 60 times per second
     public void update(){
+        // setting direction of character during each instance of key pressed
         if (keyH.upPressed == true){
             direction = "up";
             y -= speed; 
@@ -63,20 +65,60 @@ public class player extends Entity {
         } else {
             direction = "idle";
         }
+
+        // alternating between spritenums to alternate between character images -> animation
+        spriteCounter++;
+        // player image changes every 10 frames
+        if (spriteCounter > 10){
+            if (spriteNum == 1){
+                spriteNum = 2;
+            } else if (spriteNum == 2){
+                spriteNum = 1;
+            }
+            spriteCounter = 0;
+        }
     }
 
     public void draw(Graphics2D g2){
         // g2.setColor(Color.white);
         // g2.fillRect(x, y, gp.tileSize, gp.tileSize); // draws rectangle and fills w colour
-    
+        
         BufferedImage image = null;
+        // alternating pictures every few seconds for each keyboard command to create an animation effect
         switch (direction){
-            case "up" -> image = up1;
-            case "down" -> image = down1;
-            case "left" -> image = left1;
-            case "right" -> image = right1;
-            case "idle" -> image = idle;
+            case "up" :
+                if (spriteNum == 1){
+                    image = up1;
+                } if (spriteNum == 2){
+                    image = up2;
+                }
+                break;
+            case "down" :
+                if (spriteNum == 1){
+                    image = down1;
+                } if (spriteNum == 2){
+                    image = down2;
+                }
+                break;
+            case "left" :
+                if (spriteNum == 1){
+                    image = left1;
+                } if (spriteNum == 2){
+                    image = left2;
+                }
+                break;
+            case "right" :
+                if (spriteNum == 1){
+                    image = right1;
+                } if (spriteNum == 2){
+                    image = right2;
+                }
+                break;
+            case "idle" :
+                image = idle;
+                break;
         }
+        // replacing og white rectangle with character image
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
         
     }
