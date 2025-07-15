@@ -27,13 +27,13 @@ public class tileManager {
         try { 
             //initilizing tile array w/diff tile images
             Tile[0] = new tile();
-            Tile[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wooden_floor.png"));
+            Tile[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/snowv3.png"));
 
             Tile[1] = new tile();
-            Tile[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall_art.png"));
+            Tile[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/fencing.png"));
 
             Tile[2] = new tile();
-            Tile[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/carpet.png"));
+            Tile[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/ice.png"));
 
         } catch (IOException e) {
             e.printStackTrace();
