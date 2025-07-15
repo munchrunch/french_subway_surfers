@@ -21,8 +21,8 @@ public class Main {
     }
 
     /* program notes:
-     *  - oh my god the tiles are so ugly all together F;SJLFKDSLDFSLKDFJLSKD
-     *  - dw i'm going to change that in the next update TRUST
-     *  - trust these were js for testing guys !! (i didn't spend 3 hours picking/drawing them wdym)
+     * - changed the map (used one off the internet for now, going to change it later)
+     * - added a camera function so that i could expand the map
+     * - updated some of the tiles because i noticed they looked a bit weird (shadows, etc.)
      */
 }

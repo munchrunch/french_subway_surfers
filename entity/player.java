@@ -12,10 +12,18 @@ import main.keyHandler;
 public class player extends Entity {
     gamePanel gp;
     keyHandler keyH;
+
+    // where player is drawn on the screen
+    public final int screenX;
+    public final int screenY;
     
     public player (gamePanel gp, keyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
+
+        // returns halfway point of screen; player's screen position doesn't change
+        screenX = gp.screenWidth / 2 - (gp.tileSize/2); // subtracting half a tile size from player pos so that player is acc in the center
+        screenY = gp.screenHeight / 2 - (gp.tileSize/2); // not just having top left corner of image be in the center (if that makes sense?)
 
         setDefaultValues();
         getPlayerImage();
@@ -23,8 +31,8 @@ public class player extends Entity {
 
     // setting mc default values
     public void setDefaultValues(){
-        x = 100; // 100 pixels to the right
-        y = 100; // 100 pixels down
+        worldX = gp.tileSize * 23; // in world01.txt, 23 tiles to the right
+        worldY = gp.tileSize * 21; // in world01.txt, 21 tiles down
         speed = 4; // 4 pixel speed rate
         direction = "idle"; // default direction is idle png
     }
@@ -52,16 +60,16 @@ public class player extends Entity {
         // setting direction of character during each instance of key pressed
         if (keyH.upPressed == true){
             direction = "up";
-            y -= speed; 
+            worldY -= speed; 
         } else if (keyH.downPressed == true){
             direction = "down";
-            y += speed;
+            worldY += speed;
         } else if (keyH.leftPressed == true){
             direction = "left";
-            x -= speed;
+            worldX -= speed;
         } else if (keyH.rightPressed == true){
             direction = "right";
-            x += speed;
+            worldX += speed;
         } else {
             direction = "idle";
         }
@@ -119,7 +127,7 @@ public class player extends Entity {
                 break;
         }
         // replacing og white rectangle with character image
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         
     }
 }
