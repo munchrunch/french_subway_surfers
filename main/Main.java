@@ -20,11 +20,9 @@ public class Main {
         gamePan.startGameThread();
     }
 
-    /* program notes/preliminary logic:
-     *  - need to make it so that character automatically keeps going forward
-     *  - 2d game, character can only go up and down (maybe a bird??)
-     *  - add obstacles later, just make sure that character keeps going forward
-     *  - need to design character and background (something pixelated, y2k style)
-     *  - player object, make screen little smaller than laptop monitor size, etc.
+    /* program notes:
+     *  - oh my god the tiles are so ugly all together F;SJLFKDSLDFSLKDFJLSKD
+     *  - dw i'm going to change that in the next update TRUST
+     *  - trust these were js for testing guys !! (i didn't spend 3 hours picking/drawing them wdym)
      */
 }

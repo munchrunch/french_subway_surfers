@@ -23,10 +23,10 @@ public class player extends Entity {
 
     // setting mc default values
     public void setDefaultValues(){
-        x = 100;
-        y = 100;
-        speed = 4;
-        direction = "idle";
+        x = 100; // 100 pixels to the right
+        y = 100; // 100 pixels down
+        speed = 4; // 4 pixel speed rate
+        direction = "idle"; // default direction is idle png
     }
 
     public void getPlayerImage(){
@@ -68,8 +68,8 @@ public class player extends Entity {
 
         // alternating between spritenums to alternate between character images -> animation
         spriteCounter++;
-        // player image changes every 10 frames
-        if (spriteCounter > 10){
+        // player image changes every 12 frames
+        if (spriteCounter > 12){
             if (spriteNum == 1){
                 spriteNum = 2;
             } else if (spriteNum == 2){
